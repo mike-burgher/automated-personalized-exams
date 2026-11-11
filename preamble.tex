@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+
+% --------------------
+% Packages
+% --------------------
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+%\usepackage{enumitem}
+\usepackage[shortlabels]{enumitem}
+\usepackage{fancyhdr}
+\usepackage{xparse}
+\usepackage{pgfplots}
+\usepackage{multicol}
+\pgfplotsset{compat=1.18}
+\setlength{\parindent}{0pt}
+
+% --------------------
+% Basic exam information
+% --------------------
+\newcommand{\coursename}{Calculus I}
+\newcommand{\examname}{Exam 5}
+\newcommand{\examdate}{2 December 2026}
+\renewcommand{\labelitemii}{$\circ$}
+
+% --------------------
+% Page style
+% --------------------
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\coursename}
+\rhead{\examname}
+\cfoot{\thepage}
+
+% --------------------
+% Question counter
+% --------------------
+\newcounter{question}
+
+% --------------------
+% Question command
+% --------------------
+% Usage:
+%
+% \begin{examquestion}
+%     Question contents...
+% \end{examquestion}
+%
+% Each question is automatically numbered,
+% has a variable for how many points, and starts on a new page.
+% --------------------
+
+\NewDocumentEnvironment{examquestion}{m}
+{
+    \clearpage
+    \stepcounter{question}
+
+    \noindent
+    {\Large\textbf{Question \thequestion}}
+    \hfill
+    {\large\textbf{#1 points}}
+
+    \vspace{0.5em}
+    \hrule
+    \vspace{1em}
+}
+{
+    \vfill
+}
+
+\newcommand{\minscore}[2]{%
+    \textbf{#1/#2}
+    %\textbf{[#2 pts]}
+}
